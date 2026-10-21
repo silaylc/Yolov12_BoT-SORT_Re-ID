@@ -1,4 +1,4 @@
-# YOLOv12n + BoT-SORT (untrained)
+# Strong Baseline (YOLOv12n + BoT-SORT-ReID) — untrained
 
 Multi-UAV tracking in thermal infrared video with a **YOLOv12n** detector and the
 **BoT-SORT** tracker with an optional **FastReID** appearance model.
