@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Trained weights and checkpoints (train your own; none are committed)
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Training and tracking outputs
+/runs/
+BoT-SORT/yolov12/runs/
+BoT-SORT/runs/*
+!BoT-SORT/runs/README.md
+BoT-SORT/submit/*
+!BoT-SORT/submit/README.md
+BoT-SORT/logs/sbs_S50/
+BoT-SORT/yolov12/_temp_uav_abs.yaml
+
+# Datasets (download separately)
+data/MOT/datasets/
+data/MOT/MultiUAV_Test/
+BoT-SORT/fast_reid/datasets/MOT20/
+
+# Environment / editor / OS
+.env
+.vscode/
+.idea/
+.DS_Store
