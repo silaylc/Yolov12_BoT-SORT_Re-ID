@@ -13,7 +13,10 @@ venv/
 
 # Training and tracking outputs
 runs/
-BoT-SORT/submit/
+BoT-SORT/runs/*
+!BoT-SORT/runs/README.md
+BoT-SORT/submit/*
+!BoT-SORT/submit/README.md
 BoT-SORT/logs/sbs_S50/
 BoT-SORT/yolov12/_temp_uav_abs.yaml
 
