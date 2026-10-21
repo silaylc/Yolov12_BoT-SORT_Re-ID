@@ -3,25 +3,13 @@ import yaml
 import shutil
 import argparse
 from ultralytics import YOLO
-from huggingface_hub import hf_hub_download
-
-
-# Download pretrained weight
-target_dir = "weights"
-os.makedirs(target_dir, exist_ok=True)
-files_to_download = ["MOT_yolov12n.pt"]
-for filename in files_to_download:
-    downloaded_path = hf_hub_download(
-        repo_id="wish44165/YOLOv12-BoT-SORT-ReID",
-        filename=filename
-    )
-    shutil.copy(downloaded_path, os.path.join(target_dir, filename))
-print(f"Downloaded files are saved to: {target_dir}")
 
 
 def parse_opt(known=False):
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model_name', type=str, default='./weights/MOT_yolov12n.pt', help='model name')
+    parser.add_argument('--model_name', type=str, default='ultralytics/cfg/models/v12/yolov12n.yaml',
+                        help='model to start from: a .yaml trains from scratch (yolov12n/s/m/l/x.yaml), '
+                             'a .pt (e.g. COCO-pretrained yolov12n.pt) fine-tunes from those weights')
     parser.add_argument('--yaml_path', type=str, default='uav.yaml', help='The yaml path')
     parser.add_argument('--n_epoch', type=int, default=100, help='Total number of training epochs.')
     parser.add_argument('--n_patience', type=int, default=100, help='Early stopping patience.')

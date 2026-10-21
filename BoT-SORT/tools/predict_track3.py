@@ -64,8 +64,9 @@ import shutil
 target_dir = "logs/sbs_S50"
 os.makedirs(target_dir, exist_ok=True)  # Make sure the directory exists
 
-# List of files to download
-files_to_download = ["model_0016.pth", "config.yaml"]
+# Only the ReID config (hyperparameters) is fetched, and only if missing.
+# The released ReID checkpoint is never downloaded: pass your own with --fast-reid-weights.
+files_to_download = [] if os.path.exists(os.path.join(target_dir, "config.yaml")) else ["config.yaml"]
 
 # Download each file and move it to the target directory
 for filename in files_to_download:
