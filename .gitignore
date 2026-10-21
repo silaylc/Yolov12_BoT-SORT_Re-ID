@@ -12,7 +12,8 @@ venv/
 *.engine
 
 # Training and tracking outputs
-runs/
+/runs/
+BoT-SORT/yolov12/runs/
 BoT-SORT/runs/*
 !BoT-SORT/runs/README.md
 BoT-SORT/submit/*
