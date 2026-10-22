@@ -248,7 +248,7 @@ class SimpleTrainer(TrainerBase):
         If you need accumulate gradients or something similar, you can
         wrap the optimizer with your custom `zero_grad()` method.
         """
-        self.optimizer.zero_grad()
+        self.optimizer.zero_grad(set_to_none=False)  # ContiguousParams needs the grad buffer kept (PyTorch >= 2.0 default is set_to_none=True)
 
         losses.backward()
 
@@ -346,7 +346,7 @@ class AMPTrainer(SimpleTrainer):
             loss_dict = self.model(data)
             losses = sum(loss_dict.values())
 
-        self.optimizer.zero_grad()
+        self.optimizer.zero_grad(set_to_none=False)  # ContiguousParams needs the grad buffer kept (PyTorch >= 2.0 default is set_to_none=True)
         self.grad_scaler.scale(losses).backward()
 
         self._write_metrics(loss_dict, data_time)
